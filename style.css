@@ -1,0 +1,6 @@
+.container > div {
+  background-color: dodgerblue;
+  border: 1px solid rgba(0, 0, 0, 0.719);
+  height: 2rem;
+  width: 2rem;
+}
