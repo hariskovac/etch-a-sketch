@@ -11,6 +11,19 @@ squares.forEach((square) => {
   });
 });
 
+const gridButton = document.querySelector("button");
+
+gridButton.addEventListener("click", () => {
+  const body = document.querySelector("body");
+  body.removeChild(document.querySelector(".container"));
+
+  const newGrid = document.createElement("div");
+  newGrid.setAttribute("class", "container");
+  body.appendChild(newGrid);
+  
+  setGrid();
+})
+
 function setGrid() {
   let gridSize = 0;
 
