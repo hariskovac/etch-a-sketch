@@ -10,3 +10,10 @@ squares.forEach((square) => {
     e.target.style.backgroundColor = "crimson";
   });
 });
+
+function setGrid(size) {
+  for (let i = 0; i < Math.pow(size, 2); i++) {
+    const newDiv = document.createElement("div");
+    document.querySelector(".container").appendChild(newDiv);
+  }
+}
