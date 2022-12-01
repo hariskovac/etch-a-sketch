@@ -1,13 +1,13 @@
 for (let i = 0; i < 256; i++) {
   const newDiv = document.createElement("div");
-  newDiv.classList.add("hover");
+  newDiv.classList.add("square");
   document.querySelector(".container").appendChild(newDiv);
 }
 
 addHover();
 
 function addHover() {
-  const squares = document.querySelectorAll(".hover");
+  const squares = document.querySelectorAll(".square");
 
   squares.forEach((square) => {
     square.addEventListener("mouseover", function(e) {
@@ -42,7 +42,7 @@ gridButton.addEventListener("click", () => {
 function setGrid(size) {
   for (let i = 0; i < Math.pow(size, 2); i++) {
     const newDiv = document.createElement("div");
-    newDiv.classList.add("hover");
+    newDiv.classList.add("square");
     document.querySelector(".container").appendChild(newDiv);
   };
   addHover();
