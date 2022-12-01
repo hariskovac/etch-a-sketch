@@ -19,13 +19,16 @@ gridButton.addEventListener("click", () => {
 
   const newGrid = document.createElement("div");
   newGrid.setAttribute("class", "container");
-  body.appendChild(newGrid);
   
   let gridSize = 0;
 
   do {
     gridSize = parseInt(prompt("Please enter a new value between 1 and 100"));
   } while (gridSize > 100 || gridSize < 1 || !(gridSize));
+
+  newGrid.style.gridTemplateColumns = `repeat(${gridSize}, 2rem)`;
+  newGrid.style.gridTemplateRows = `repeat(${gridSize}, 2rem)`;
+  body.appendChild(newGrid);
 
   setGrid(gridSize);
 })
