@@ -32,8 +32,8 @@ gridButton.addEventListener("click", () => {
     gridSize = parseInt(prompt("Please enter a new value between 1 and 100"));
   } while (gridSize > 100 || gridSize < 1 || !(gridSize));
 
-  newGrid.style.gridTemplateColumns = `repeat(${gridSize}, 2rem)`;
-  newGrid.style.gridTemplateRows = `repeat(${gridSize}, 2rem)`;
+  newGrid.style.gridTemplateColumns = `repeat(${gridSize}, 1fr)`;
+  newGrid.style.gridTemplateRows = `repeat(${gridSize}, 1fr)`;
   body.appendChild(newGrid);
 
   setGrid(gridSize);
