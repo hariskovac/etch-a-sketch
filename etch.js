@@ -21,16 +21,14 @@ gridButton.addEventListener("click", () => {
   newGrid.setAttribute("class", "container");
   body.appendChild(newGrid);
   
-  setGrid();
-})
-
-function getInput() {
   let gridSize = 0;
 
   do {
     gridSize = parseInt(prompt("Please enter a new value between 1 and 100"));
   } while (gridSize > 100 || gridSize < 1 || !(gridSize));
-}
+
+  setGrid(gridSize);
+})
 
 function setGrid(size) {
   for (let i = 0; i < Math.pow(size, 2); i++) {
