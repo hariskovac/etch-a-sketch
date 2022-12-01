@@ -11,4 +11,5 @@
   background-color: dodgerblue;
   border: 0.1rem solid rgba(65, 64, 160, 0.178);
   width: 100%;
+  aspect-ratio: 1/1;
 }
