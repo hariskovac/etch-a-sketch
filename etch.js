@@ -4,13 +4,18 @@ for (let i = 0; i < 256; i++) {
   document.querySelector(".container").appendChild(newDiv);
 }
 
-const squares = document.querySelectorAll(".hover");
+addHover();
 
-squares.forEach((square) => {
-  square.addEventListener("mouseover", function(e) {
-    e.target.style.backgroundColor = "crimson";
+function addHover() {
+  const squares = document.querySelectorAll(".hover");
+
+  squares.forEach((square) => {
+    square.addEventListener("mouseover", function(e) {
+      e.target.style.backgroundColor = "crimson";
+    });
   });
-});
+}
+
 
 const gridButton = document.querySelector("button");
 
@@ -37,6 +42,8 @@ gridButton.addEventListener("click", () => {
 function setGrid(size) {
   for (let i = 0; i < Math.pow(size, 2); i++) {
     const newDiv = document.createElement("div");
+    newDiv.classList.add("hover");
     document.querySelector(".container").appendChild(newDiv);
   };
+  addHover();
 }
