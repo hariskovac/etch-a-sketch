@@ -11,7 +11,7 @@
 }
 
 .etchBorder > h1 {
-  font-family: Pacifico, cursive;
+  font-family: Pacifico, cursive, monospace;
   font-weight: 100;
   text-align: center;
   font-size: 4rem;
