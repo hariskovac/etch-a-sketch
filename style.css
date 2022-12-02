@@ -1,17 +1,20 @@
 .etchBorder {
   background-color: #fc1d2d;
   margin: auto;
-  width: 90vw;
-  height: 80vh;
+  width: 1000px;
+  height: 750px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
 }
 
 .etchBorder > h1 {
   text-align: center;
-  font-size: 4rem;
+  font-size: 5rem;
+  margin-block-end: 0.5rem;
+  margin-block-start: 1.5rem;
+  color: #fbd782;
 }
 
 .canvas {
@@ -24,7 +27,7 @@
 }
 
 .canvas > div {
-  background-color: dodgerblue;
+  background-color: #f2f2f2;
   width: 100%;
   aspect-ratio: 1/1;
 }

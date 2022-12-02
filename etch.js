@@ -11,7 +11,7 @@ function addHover() {
 
   squares.forEach((square) => {
     square.addEventListener("mouseover", function(e) {
-      e.target.style.backgroundColor = "crimson";
+      e.target.style.backgroundColor = "#bab8ba";
     });
   });
 }
