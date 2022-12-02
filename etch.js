@@ -34,6 +34,12 @@ sizeSlider.addEventListener("change", () => {
   setGrid(sizeSlider.value);
 })
 
+const sizeDisplay = document.querySelector("#size-display");
+
+sizeSlider.onmousemove = function () {
+  sizeDisplay.textContent = `${sizeSlider.value} x ${sizeSlider.value}`;
+}  
+
 // const gridButton = document.querySelector("button");
 
 // gridButton.addEventListener("click", () => {
