@@ -25,6 +25,8 @@ gridButton.addEventListener("click", () => {
 
   const newGrid = document.createElement("div");
   newGrid.setAttribute("class", "canvas");
+
+  const options = document.querySelector(".options");
   
   let gridSize = 0;
 
@@ -34,7 +36,7 @@ gridButton.addEventListener("click", () => {
 
   newGrid.style.gridTemplateColumns = `repeat(${gridSize}, 1fr)`;
   newGrid.style.gridTemplateRows = `repeat(${gridSize}, 1fr)`;
-  etchBorder.appendChild(newGrid);
+  etchBorder.insertBefore(newGrid, options);
 
   setGrid(gridSize);
 })

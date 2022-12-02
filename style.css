@@ -1,5 +1,6 @@
 .etchBorder {
   background-color: #fc1d2d;
+  border-radius: 10px;
   margin: auto;
   width: 1000px;
   height: 750px;
@@ -10,17 +11,20 @@
 }
 
 .etchBorder > h1 {
+  font-family: Pacifico, cursive;
+  font-weight: 100;
   text-align: center;
-  font-size: 5rem;
-  margin-block-end: 0.5rem;
-  margin-block-start: 1.5rem;
+  font-size: 4rem;
+  margin-block-end: 0.1rem;
+  margin-block-start: 0.1rem;
   color: #fbd782;
 }
 
 .canvas {
-  width: 45%;
+  width: 55%;
   margin: auto;
   display: grid;
+  box-sizing: border-box;
   grid-template-columns: repeat(16, 1fr);
   grid-template-rows: repeat(16, 1fr);
   justify-content: center;
@@ -30,4 +34,8 @@
   background-color: #f2f2f2;
   width: 100%;
   aspect-ratio: 1/1;
+}
+
+.options {
+  height: 20%;
 }
