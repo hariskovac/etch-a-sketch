@@ -1,5 +1,17 @@
 .etchBorder {
-  background-color: red;
+  background-color: #fc1d2d;
+  margin: auto;
+  width: 90vw;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.etchBorder > h1 {
+  text-align: center;
+  font-size: 4rem;
 }
 
 .canvas {
