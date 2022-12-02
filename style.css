@@ -1,4 +1,8 @@
-.container {
+.etchBorder {
+  background-color: red;
+}
+
+.canvas {
   width: 45%;
   margin: auto;
   display: grid;
@@ -7,7 +11,7 @@
   justify-content: center;
 }
 
-.container > div {
+.canvas > div {
   background-color: dodgerblue;
   width: 100%;
   aspect-ratio: 1/1;

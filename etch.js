@@ -1,7 +1,7 @@
 for (let i = 0; i < 256; i++) {
   const newDiv = document.createElement("div");
   newDiv.classList.add("square");
-  document.querySelector(".container").appendChild(newDiv);
+  document.querySelector(".canvas").appendChild(newDiv);
 }
 
 addHover();
@@ -20,11 +20,11 @@ function addHover() {
 const gridButton = document.querySelector("button");
 
 gridButton.addEventListener("click", () => {
-  const body = document.querySelector("body");
-  body.removeChild(document.querySelector(".container"));
+  const etchBorder = document.querySelector(".etchBorder");
+  etchBorder.removeChild(document.querySelector(".canvas"));
 
   const newGrid = document.createElement("div");
-  newGrid.setAttribute("class", "container");
+  newGrid.setAttribute("class", "canvas");
   
   let gridSize = 0;
 
@@ -34,7 +34,7 @@ gridButton.addEventListener("click", () => {
 
   newGrid.style.gridTemplateColumns = `repeat(${gridSize}, 1fr)`;
   newGrid.style.gridTemplateRows = `repeat(${gridSize}, 1fr)`;
-  body.appendChild(newGrid);
+  etchBorder.appendChild(newGrid);
 
   setGrid(gridSize);
 })
@@ -43,7 +43,7 @@ function setGrid(size) {
   for (let i = 0; i < Math.pow(size, 2); i++) {
     const newDiv = document.createElement("div");
     newDiv.classList.add("square");
-    document.querySelector(".container").appendChild(newDiv);
+    document.querySelector(".canvas").appendChild(newDiv);
   };
   addHover();
 }
