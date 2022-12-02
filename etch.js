@@ -16,10 +16,9 @@ function addHover() {
   });
 }
 
+const sizeSlider = document.querySelector(".slider");
 
-const gridButton = document.querySelector("button");
-
-gridButton.addEventListener("click", () => {
+sizeSlider.addEventListener("change", () => {
   const etchBorder = document.querySelector(".etchBorder");
   etchBorder.removeChild(document.querySelector(".canvas"));
 
@@ -27,19 +26,37 @@ gridButton.addEventListener("click", () => {
   newGrid.setAttribute("class", "canvas");
 
   const options = document.querySelector(".options");
-  
-  let gridSize = 0;
 
-  do {
-    gridSize = parseInt(prompt("Please enter a new value between 1 and 100"));
-  } while (gridSize > 100 || gridSize < 1 || !(gridSize));
-
-  newGrid.style.gridTemplateColumns = `repeat(${gridSize}, 1fr)`;
-  newGrid.style.gridTemplateRows = `repeat(${gridSize}, 1fr)`;
+  newGrid.style.gridTemplateColumns = `repeat(${sizeSlider.value}, 1fr)`;
+  newGrid.style.gridTemplateRows = `repeat(${sizeSlider.value}, 1fr)`;
   etchBorder.insertBefore(newGrid, options);
 
-  setGrid(gridSize);
+  setGrid(sizeSlider.value);
 })
+
+// const gridButton = document.querySelector("button");
+
+// gridButton.addEventListener("click", () => {
+//   const etchBorder = document.querySelector(".etchBorder");
+//   etchBorder.removeChild(document.querySelector(".canvas"));
+
+//   const newGrid = document.createElement("div");
+//   newGrid.setAttribute("class", "canvas");
+
+//   const options = document.querySelector(".options");
+  
+//   let gridSize = 0;
+
+//   do {
+//     gridSize = parseInt(prompt("Please enter a new value between 1 and 100"));
+//   } while (gridSize > 100 || gridSize < 1 || !(gridSize));
+
+//   newGrid.style.gridTemplateColumns = `repeat(${gridSize}, 1fr)`;
+//   newGrid.style.gridTemplateRows = `repeat(${gridSize}, 1fr)`;
+//   etchBorder.insertBefore(newGrid, options);
+
+//   setGrid(gridSize);
+// })
 
 function setGrid(size) {
   for (let i = 0; i < Math.pow(size, 2); i++) {
