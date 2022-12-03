@@ -1,15 +1,12 @@
 const sizeSlider = document.querySelector(".slider");
 const sizeDisplay = document.querySelector("#size-display");
 
-changeColor();
-
 // Changes the color of the divs inside the canvas
 function changeColor(e) {
-  if (e?.buttons > 0) {
+  if (e?.buttons === 1) {
     e.target.style.backgroundColor = "#bab8ba";
   }
 }
-
 
 // Updates the canvas upon changing the size slider
 sizeSlider.addEventListener("change", () => {
@@ -39,8 +36,6 @@ sizeSlider.onclick = function () {
   sizeDisplay.textContent = `${sizeSlider.value} x ${sizeSlider.value}`;
 }
 
-// const gridButton = document.querySelector("button");
-
 // Creates divs to fill the canvas based on user selected size
 function setGrid(size) {
   for (let i = 0; i < Math.pow(size, 2); i++) {
@@ -50,7 +45,6 @@ function setGrid(size) {
     newDiv.addEventListener("mousedown", changeColor);
     document.querySelector(".canvas").appendChild(newDiv);
   };
-  changeColor();
 }
 
 // Creates the initial 16 x 16 grid
