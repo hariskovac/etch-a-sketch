@@ -1,6 +1,10 @@
 const sizeSlider = document.querySelector(".slider");
 const sizeDisplay = document.querySelector("#size-display");
 
+let mouseDown = false;
+document.body.onmousedown = () => (mouseDown = true);
+document.body.onmouseup = () => (mouseDown = false);
+
 // Create the initial 16x16 grid on page load
 for (let i = 0; i < 256; i++) {
   const newDiv = document.createElement("div");
@@ -8,15 +12,17 @@ for (let i = 0; i < 256; i++) {
   document.querySelector(".canvas").appendChild(newDiv);
 }
 
-addHover();
+changeColor();
 
 // Creates event listeners for all squares which change color on mouseover
-function addHover() {
+function changeColor() {
   const squares = document.querySelectorAll(".square");
 
   squares.forEach((square) => {
     square.addEventListener("mouseover", function(e) {
-      e.target.style.backgroundColor = "#bab8ba";
+      if (mouseDown === true) {
+        e.target.style.backgroundColor = "#bab8ba";
+      }
     });
   });
 }
@@ -52,6 +58,20 @@ sizeSlider.onclick = function () {
 
 // const gridButton = document.querySelector("button");
 
+// Creates divs to fill the canvas based on user selected size
+function setGrid(size) {
+  for (let i = 0; i < Math.pow(size, 2); i++) {
+    const newDiv = document.createElement("div");
+    newDiv.classList.add("square");
+    document.querySelector(".canvas").appendChild(newDiv);
+  };
+  changeColor();
+}
+
+
+
+
+
 // gridButton.addEventListener("click", () => {
 //   const etchBorder = document.querySelector(".etchBorder");
 //   etchBorder.removeChild(document.querySelector(".canvas"));
@@ -73,13 +93,3 @@ sizeSlider.onclick = function () {
 
 //   setGrid(gridSize);
 // })
-
-// Creates divs to fill the canvas based on user selected size
-function setGrid(size) {
-  for (let i = 0; i < Math.pow(size, 2); i++) {
-    const newDiv = document.createElement("div");
-    newDiv.classList.add("square");
-    document.querySelector(".canvas").appendChild(newDiv);
-  };
-  addHover();
-}
