@@ -1,15 +1,6 @@
 const sizeSlider = document.querySelector(".slider");
 const sizeDisplay = document.querySelector("#size-display");
 
-// Create the initial 16x16 grid on page load
-for (let i = 0; i < 256; i++) {
-  const newDiv = document.createElement("div");
-  newDiv.classList.add("square");
-  newDiv.addEventListener("mouseover", changeColor);
-  newDiv.addEventListener("mousedown", changeColor);
-  document.querySelector(".canvas").appendChild(newDiv);
-}
-
 changeColor();
 
 // Changes the color of the divs inside the canvas
@@ -62,7 +53,10 @@ function setGrid(size) {
   changeColor();
 }
 
-
+// Creates the initial 16 x 16 grid
+window.onload = () => {
+  setGrid(16);
+}
 
 
 
