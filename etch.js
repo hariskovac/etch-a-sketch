@@ -40,6 +40,10 @@ sizeSlider.onmousemove = function () {
   sizeDisplay.textContent = `${sizeSlider.value} x ${sizeSlider.value}`;
 }  
 
+sizeSlider.onclick = function () {
+  sizeDisplay.textContent = `${sizeSlider.value} x ${sizeSlider.value}`;
+}
+
 // const gridButton = document.querySelector("button");
 
 // gridButton.addEventListener("click", () => {

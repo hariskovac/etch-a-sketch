@@ -1,5 +1,10 @@
+body {
+  font-family: Pacifico, cursive, monospace;
+  box-sizing: border-box;
+}
+
 .etchBorder {
-  background-color: #fc1d2d;
+  background-color: #fc474a;
   border-radius: 10px;
   margin: auto;
   width: 1000px;
@@ -11,12 +16,8 @@
 }
 
 .etchBorder > h1 {
-  font-family: Pacifico, cursive, monospace;
   font-weight: 100;
-  text-align: center;
   font-size: 4rem;
-  margin-block-end: 0.1rem;
-  margin-block-start: 0.1rem;
   color: #fbd782;
 }
 
@@ -38,4 +39,10 @@
 
 .options {
   height: 20%;
+}
+
+.text {
+  text-align: center;
+  margin-block-end: 0.1rem;
+  margin-block-start: 0.1rem;
 }
