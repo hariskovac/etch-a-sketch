@@ -1,3 +1,7 @@
+const sizeSlider = document.querySelector(".slider");
+const sizeDisplay = document.querySelector("#size-display");
+
+// Create the initial 16x16 grid on page load
 for (let i = 0; i < 256; i++) {
   const newDiv = document.createElement("div");
   newDiv.classList.add("square");
@@ -6,6 +10,7 @@ for (let i = 0; i < 256; i++) {
 
 addHover();
 
+// Creates event listeners for all squares which change color on mouseover
 function addHover() {
   const squares = document.querySelectorAll(".square");
 
@@ -16,8 +21,8 @@ function addHover() {
   });
 }
 
-const sizeSlider = document.querySelector(".slider");
 
+// Updates the canvas upon changing the size slider
 sizeSlider.addEventListener("change", () => {
   const etchBorder = document.querySelector(".etchBorder");
   etchBorder.removeChild(document.querySelector(".canvas"));
@@ -34,12 +39,13 @@ sizeSlider.addEventListener("change", () => {
   setGrid(sizeSlider.value);
 })
 
-const sizeDisplay = document.querySelector("#size-display");
 
+// Update grid size text while moving slider
 sizeSlider.onmousemove = function () {
   sizeDisplay.textContent = `${sizeSlider.value} x ${sizeSlider.value}`;
 }  
 
+// Update grid size text after clicking on the slider
 sizeSlider.onclick = function () {
   sizeDisplay.textContent = `${sizeSlider.value} x ${sizeSlider.value}`;
 }
@@ -68,6 +74,7 @@ sizeSlider.onclick = function () {
 //   setGrid(gridSize);
 // })
 
+// Creates divs to fill the canvas based on user selected size
 function setGrid(size) {
   for (let i = 0; i < Math.pow(size, 2); i++) {
     const newDiv = document.createElement("div");
