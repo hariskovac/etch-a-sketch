@@ -9,22 +9,17 @@ document.body.onmouseup = () => (mouseDown = false);
 for (let i = 0; i < 256; i++) {
   const newDiv = document.createElement("div");
   newDiv.classList.add("square");
+  newDiv.addEventListener("mouseover", changeColor);
   document.querySelector(".canvas").appendChild(newDiv);
 }
 
 changeColor();
 
 // Creates event listeners for all squares which change color on mouseover
-function changeColor() {
-  const squares = document.querySelectorAll(".square");
-
-  squares.forEach((square) => {
-    square.addEventListener("mouseover", function(e) {
-      if (mouseDown === true) {
-        e.target.style.backgroundColor = "#bab8ba";
-      }
-    });
-  });
+function changeColor(e) {
+  if (mouseDown === true) {
+    e.target.style.backgroundColor = "#bab8ba";
+  } 
 }
 
 
@@ -63,6 +58,7 @@ function setGrid(size) {
   for (let i = 0; i < Math.pow(size, 2); i++) {
     const newDiv = document.createElement("div");
     newDiv.classList.add("square");
+    newDiv.addEventListener("mouseover", changeColor);
     document.querySelector(".canvas").appendChild(newDiv);
   };
   changeColor();
