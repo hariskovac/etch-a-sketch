@@ -1,25 +1,22 @@
 const sizeSlider = document.querySelector(".slider");
 const sizeDisplay = document.querySelector("#size-display");
 
-let mouseDown = false;
-document.body.onmousedown = () => (mouseDown = true);
-document.body.onmouseup = () => (mouseDown = false);
-
 // Create the initial 16x16 grid on page load
 for (let i = 0; i < 256; i++) {
   const newDiv = document.createElement("div");
   newDiv.classList.add("square");
   newDiv.addEventListener("mouseover", changeColor);
+  newDiv.addEventListener("mousedown", changeColor);
   document.querySelector(".canvas").appendChild(newDiv);
 }
 
 changeColor();
 
-// Creates event listeners for all squares which change color on mouseover
+// Changes the color of the divs inside the canvas
 function changeColor(e) {
-  if (mouseDown === true) {
+  if (e?.buttons > 0) {
     e.target.style.backgroundColor = "#bab8ba";
-  } 
+  }
 }
 
 
@@ -59,6 +56,7 @@ function setGrid(size) {
     const newDiv = document.createElement("div");
     newDiv.classList.add("square");
     newDiv.addEventListener("mouseover", changeColor);
+    newDiv.addEventListener("mousedown", changeColor);
     document.querySelector(".canvas").appendChild(newDiv);
   };
   changeColor();
