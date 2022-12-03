@@ -3,7 +3,7 @@ body {
   box-sizing: border-box;
 }
 
-.etchBorder {
+.etch-border {
   background-color: #fc474a;
   border-radius: 10px;
   margin: auto;
@@ -15,7 +15,7 @@ body {
   justify-content: center;
 }
 
-.etchBorder > h1 {
+.etch-border > h1 {
   font-weight: 100;
   font-size: 4rem;
   color: #fbd782;

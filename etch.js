@@ -22,7 +22,7 @@ function changeColor(e) {
 
 // Updates the canvas upon changing the size slider
 sizeSlider.addEventListener("change", () => {
-  const etchBorder = document.querySelector(".etchBorder");
+  const etchBorder = document.querySelector(".etch-border");
   etchBorder.removeChild(document.querySelector(".canvas"));
 
   const newGrid = document.createElement("div");
