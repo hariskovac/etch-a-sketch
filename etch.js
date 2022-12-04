@@ -2,8 +2,10 @@ const sizeSlider = document.querySelector(".slider");
 const sizeDisplay = document.querySelector("#slider-value");
 const clearButton = document.querySelector("#clear-button");
 const colorPicker = document.querySelector(".color-picker");
+const prismaticButton = document.querySelector("#prismatic-button");
 
 let color = colorPicker.value;
+let prismaticToggle = false;
 
 sizeSlider.onmousemove = () => updateText();
 sizeSlider.onclick = () => updateText();
@@ -15,6 +17,8 @@ sizeSlider.addEventListener("change", () => {
 })
 
 clearButton.addEventListener("click", eraseDrawing);
+
+prismaticButton.addEventListener("click", prismaticMode);
 
 // Removes the current canvas and creates a new one
 function createCanvas() {
@@ -45,7 +49,24 @@ function setGrid(size) {
 // Changes the color of the divs inside the canvas
 function changeColor(e) {
   if (e?.buttons === 1) {
-    e.target.style.backgroundColor = `${color}`;
+    if (prismaticToggle === true) {
+      const red = Math.floor(Math.random() * 255);
+      const green = Math.floor(Math.random() * 255);
+      const blue  = Math.floor(Math.random() * 255);
+      e.target.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+    } else {
+      e.target.style.backgroundColor = `${color}`;
+    }
+  }
+}
+
+function prismaticMode(e) {
+  if (prismaticToggle) {
+    prismaticToggle = false;
+    e.target.style.backgroundColor = "white";
+  } else {
+    e.target.style.backgroundColor = "red";
+    prismaticToggle = true;
   }
 }
 

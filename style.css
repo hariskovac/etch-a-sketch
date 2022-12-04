@@ -79,6 +79,7 @@ button:hover {
 .slider {
   appearance: none;
   width: 125px;
+  height: 5px;
   border-radius: 9px;
   background: #fbd782;
 }
