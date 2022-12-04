@@ -9,19 +9,20 @@ let color = colorPicker.value;
 let prismaticToggle = false;
 let eraserToggle = false;
 
-sizeSlider.onmousemove = () => updateText();
-sizeSlider.onclick = () => updateText();
-colorPicker.onchange = () => (color = colorPicker.value);
-
 sizeSlider.addEventListener("change", () => {
   createCanvas();
   setGrid(sizeSlider.value);
 })
 
-clearButton.addEventListener("click", clearCanvas);
-
 prismaticButton.addEventListener("click", prismaticMode);
 eraserButton.addEventListener("click", eraserMode);
+clearButton.addEventListener("click", clearCanvas);
+sizeSlider.addEventListener("mousemove", updateText);
+sizeSlider.addEventListener("click", updateText);
+
+colorPicker.addEventListener("change", () => {
+  color = colorPicker.value;
+})
 
 // Removes the current canvas and creates a new one
 function createCanvas() {
