@@ -1,6 +1,14 @@
 const sizeSlider = document.querySelector(".slider");
 const sizeDisplay = document.querySelector("#size-display");
 
+sizeSlider.onmousemove = () => updateText();
+sizeSlider.onclick = () => updateText();
+
+sizeSlider.addEventListener("change", () => {
+  createCanvas();
+  setGrid(sizeSlider.value);
+})
+
 // Changes the color of the divs inside the canvas
 function changeColor(e) {
   if (e?.buttons === 1) {
@@ -8,8 +16,8 @@ function changeColor(e) {
   }
 }
 
-// Updates the canvas upon changing the size slider
-sizeSlider.addEventListener("change", () => {
+// Removes the current canvas and creates a new one
+function createCanvas() {
   const etchBorder = document.querySelector(".etch-border");
   etchBorder.removeChild(document.querySelector(".canvas"));
 
@@ -21,18 +29,10 @@ sizeSlider.addEventListener("change", () => {
   newGrid.style.gridTemplateColumns = `repeat(${sizeSlider.value}, 1fr)`;
   newGrid.style.gridTemplateRows = `repeat(${sizeSlider.value}, 1fr)`;
   etchBorder.insertBefore(newGrid, options);
+}
 
-  setGrid(sizeSlider.value);
-})
-
-
-// Update grid size text while moving slider
-sizeSlider.onmousemove = function () {
-  sizeDisplay.textContent = `${sizeSlider.value} x ${sizeSlider.value}`;
-}  
-
-// Update grid size text after clicking on the slider
-sizeSlider.onclick = function () {
+// Updates grid size text
+function updateText() {
   sizeDisplay.textContent = `${sizeSlider.value} x ${sizeSlider.value}`;
 }
 
