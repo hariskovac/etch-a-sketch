@@ -1,5 +1,6 @@
 const sizeSlider = document.querySelector(".slider");
 const sizeDisplay = document.querySelector("#slider-value");
+const clearButton = document.querySelector("#clear-button");
 
 sizeSlider.onmousemove = () => updateText();
 sizeSlider.onclick = () => updateText();
@@ -8,6 +9,8 @@ sizeSlider.addEventListener("change", () => {
   createCanvas();
   setGrid(sizeSlider.value);
 })
+
+clearButton.addEventListener("click", eraseDrawing);
 
 // Removes the current canvas and creates a new one
 function createCanvas() {
@@ -40,6 +43,14 @@ function changeColor(e) {
   if (e?.buttons === 1) {
     e.target.style.backgroundColor = "#bab8ba";
   }
+}
+
+// Clears the canvas
+function eraseDrawing() {
+  const canvasElements = document.querySelectorAll(".square");
+  canvasElements.forEach((square) => {
+    square.style.backgroundColor = "#f2f2f2";
+  });
 }
 
 // Updates grid size text
