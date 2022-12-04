@@ -11,7 +11,7 @@ body {
 }
 
 .etch-border {
-  background-color: #fc474a;
+  background-color: #1f98df;
   margin: auto;
   width: 100%;
   height: 100vh;
@@ -49,10 +49,6 @@ body {
   user-select: none;
 }
 
-.square:hover {
-  background-color: #fbd782;
-}
-
 .options {
   width: 300px;
   display: flex;
@@ -69,6 +65,17 @@ body {
   margin-block-start: 0.1rem;
 }
 
+button {
+  width: 125px;
+  height: 30px;
+  border-radius: 5px;
+  border: 1px solid black;
+}
+
+button:hover {
+  background-color: #fbd782;
+}
+
 .slider {
   appearance: none;
   width: 125px;
@@ -77,8 +84,8 @@ body {
 }
 
 input[type="color"] {
-  width: 45px;
-  height: 45px;
+  width: 125px;
+  height: 30px;
   border: 0;
   padding: 0;
   border-radius: 5px;
