@@ -1,9 +1,13 @@
 const sizeSlider = document.querySelector(".slider");
 const sizeDisplay = document.querySelector("#slider-value");
 const clearButton = document.querySelector("#clear-button");
+const colorPicker = document.querySelector(".color-picker");
+
+let color = colorPicker.value;
 
 sizeSlider.onmousemove = () => updateText();
 sizeSlider.onclick = () => updateText();
+colorPicker.onchange = () => (color = colorPicker.value);
 
 sizeSlider.addEventListener("change", () => {
   createCanvas();
@@ -41,7 +45,7 @@ function setGrid(size) {
 // Changes the color of the divs inside the canvas
 function changeColor(e) {
   if (e?.buttons === 1) {
-    e.target.style.backgroundColor = "#bab8ba";
+    e.target.style.backgroundColor = `${color}`;
   }
 }
 
