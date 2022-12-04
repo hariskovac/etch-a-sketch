@@ -21,21 +21,21 @@ body {
 }
 
 .canvas {
-  border: 1px solid crimson;
-  width: 55%;
+  width: 550px;
+  height: 550px;
   margin: auto;
   display: grid;
   box-sizing: border-box;
   grid-template-columns: repeat(16, 1fr);
   grid-template-rows: repeat(16, 1fr);
+  align-items: stretch;
+  justify-content: stretch;
   background-color: #f2f2f2;
 }
 
 .square {
   background-color: #f2f2f2;
   user-select: none;
-  width: 100%;
-  aspect-ratio: 1/1;
 }
 
 .square:hover {
@@ -43,7 +43,7 @@ body {
 }
 
 .options {
-  height: 20%;
+  height: 15%;
 }
 
 .text {
