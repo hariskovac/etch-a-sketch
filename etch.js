@@ -3,6 +3,7 @@ const sizeDisplay = document.querySelector("#slider-value");
 const clearButton = document.querySelector("#clear-button");
 const colorPicker = document.querySelector(".color-picker");
 const prismaticButton = document.querySelector("#prismatic-button");
+const eraserButton = document.querySelector("#eraser-button");
 
 let color = colorPicker.value;
 let prismaticToggle = false;
@@ -16,7 +17,7 @@ sizeSlider.addEventListener("change", () => {
   setGrid(sizeSlider.value);
 })
 
-clearButton.addEventListener("click", eraseDrawing);
+clearButton.addEventListener("click", clearCanvas);
 
 prismaticButton.addEventListener("click", prismaticMode);
 
@@ -69,7 +70,7 @@ function prismaticMode(e) {
 }
 
 // Clears the canvas
-function eraseDrawing() {
+function clearCanvas() {
   const canvasElements = document.querySelectorAll(".square");
   canvasElements.forEach((square) => {
     square.style.backgroundColor = "#f2f2f2";
