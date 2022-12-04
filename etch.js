@@ -1,5 +1,5 @@
 const sizeSlider = document.querySelector(".slider");
-const sizeDisplay = document.querySelector("#size-display");
+const sizeDisplay = document.querySelector("#slider-value");
 
 sizeSlider.onmousemove = () => updateText();
 sizeSlider.onclick = () => updateText();

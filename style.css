@@ -1,6 +1,7 @@
 body {
   font-family: Pacifico, cursive, monospace;
   box-sizing: border-box;
+  color: #fbd782;
 }
 
 .etch-border {
@@ -18,10 +19,10 @@ body {
 .etch-border > h1 {
   font-weight: 100;
   font-size: 4rem;
-  color: #fbd782;
 }
 
 .canvas {
+  border: 1px solid crimson;
   width: 55%;
   margin: auto;
   display: grid;
@@ -49,6 +50,7 @@ body {
 
 .text {
   text-align: center;
+  font-size: 1.5rem;
   margin-block-end: 0.1rem;
   margin-block-start: 0.1rem;
 }
