@@ -39,6 +39,10 @@ body {
   aspect-ratio: 1/1;
 }
 
+.square:hover {
+  background-color: #fbd782;
+}
+
 .options {
   height: 20%;
 }
