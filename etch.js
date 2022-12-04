@@ -50,10 +50,8 @@ function setGrid(size) {
 function changeColor(e) {
   if (e?.buttons === 1) {
     if (prismaticToggle === true) {
-      const red = Math.floor(Math.random() * 255);
-      const green = Math.floor(Math.random() * 255);
-      const blue  = Math.floor(Math.random() * 255);
-      e.target.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+      const rainbowColor = Math.floor(Math.random() * 360);
+      e.target.style.backgroundColor = `hsl(${rainbowColor}, 100%, 60%)`;
     } else {
       e.target.style.backgroundColor = `${color}`;
     }
@@ -63,9 +61,9 @@ function changeColor(e) {
 function prismaticMode(e) {
   if (prismaticToggle) {
     prismaticToggle = false;
-    e.target.style.backgroundColor = "white";
+    e.target.style.backgroundColor = "#f2f2f2";
   } else {
-    e.target.style.backgroundColor = "red";
+    e.target.style.backgroundColor = "#fbd782";
     prismaticToggle = true;
   }
 }

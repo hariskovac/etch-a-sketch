@@ -70,10 +70,11 @@ button {
   height: 30px;
   border-radius: 5px;
   border: 1px solid black;
+  transition: width 0.2s cubic-bezier(0.2, 0.9, 0.3, 1.3);
 }
 
 button:hover {
-  background-color: #fbd782;
+  width: 135px;
 }
 
 .slider {
@@ -81,23 +82,28 @@ button:hover {
   width: 125px;
   height: 5px;
   border-radius: 9px;
-  background: #fbd782;
 }
 
 input[type="color"] {
   width: 125px;
   height: 30px;
-  border: 0;
   padding: 0;
   border-radius: 5px;
+  border: 1px solid black;
+  transition: width 0.2s cubic-bezier(0.2, 0.9, 0.3, 1.3);
 }
 
 input[type="color"]::-webkit-color-swatch-wrapper {
-	padding: 1px;
+	padding: 0px;
 }
 
 input[type="color"]::-webkit-color-swatch {
   border-radius: 5px;
+  padding: 0;
+}
+
+input[type="color"]:hover {
+  width: 135px;
 }
 
 .footer {
