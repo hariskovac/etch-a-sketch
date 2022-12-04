@@ -3,6 +3,7 @@ const sizeDisplay = document.querySelector("#slider-value");
 const clearButton = document.querySelector("#clear-button");
 const colorPicker = document.querySelector(".color-picker");
 const prismaticButton = document.querySelector("#prismatic-button");
+const paintButton = document.querySelector("#paint-button");
 const eraserButton = document.querySelector("#eraser-button");
 
 let color = colorPicker.value;
@@ -15,12 +16,15 @@ sizeSlider.addEventListener("change", () => {
 })
 
 prismaticButton.addEventListener("click", prismaticMode);
+paintButton.addEventListener("click", paintAll);
 eraserButton.addEventListener("click", eraserMode);
 clearButton.addEventListener("click", clearCanvas);
 sizeSlider.addEventListener("mousemove", updateText);
 sizeSlider.addEventListener("click", updateText);
 
 colorPicker.addEventListener("change", () => {
+  prismaticOff();
+  eraserOff();
   color = colorPicker.value;
 })
 
@@ -62,26 +66,44 @@ function changeColor(e) {
   }
 }
 
+// Toggles prismatic mode on and eraser mode off
 function prismaticMode(e) {
-  eraserToggle = false;
-  eraserButton.style.backgroundColor = "#f2f2f2";
+  eraserOff();
   if (prismaticToggle) {
-    prismaticToggle = false;
-    e.target.style.backgroundColor = "#f2f2f2";
+    prismaticOff();
   } else {
     prismaticToggle = true;
     e.target.style.backgroundColor = "#fbd782";
   }
 }
 
-function eraserMode(e) {
+// Toggles prismatic mode off
+function prismaticOff() {
   prismaticToggle = false;
   prismaticButton.style.backgroundColor = "#f2f2f2";
+}
+
+// Paints the canvas with the user selected color
+function paintAll() {
+  const canvasElements = document.querySelectorAll(".square");
+  canvasElements.forEach((square) => {
+    square.style.backgroundColor = `${color}`;
+  });
+}
+
+// Toggles eraser mode off
+function eraserOff() {
+  eraserToggle = false;
+  eraserButton.style.backgroundColor = "#f2f2f2";
+}
+
+// Toggles eraser mode on and prismatic mode off
+function eraserMode(e) {
+  prismaticOff();
   colorPicker.value = "#f2f2f2";
   color = colorPicker.value;
   if (eraserToggle) {
-    eraserToggle = false;
-    e.target.style.backgroundColor = "#f2f2f2";
+    eraserOff();
   } else {
     eraserToggle = true;
     e.target.style.backgroundColor = "#fbd782";
