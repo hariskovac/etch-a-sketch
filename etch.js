@@ -7,6 +7,7 @@ const eraserButton = document.querySelector("#eraser-button");
 
 let color = colorPicker.value;
 let prismaticToggle = false;
+let eraserToggle = false;
 
 sizeSlider.onmousemove = () => updateText();
 sizeSlider.onclick = () => updateText();
@@ -20,6 +21,7 @@ sizeSlider.addEventListener("change", () => {
 clearButton.addEventListener("click", clearCanvas);
 
 prismaticButton.addEventListener("click", prismaticMode);
+eraserButton.addEventListener("click", eraserMode);
 
 // Removes the current canvas and creates a new one
 function createCanvas() {
@@ -60,12 +62,28 @@ function changeColor(e) {
 }
 
 function prismaticMode(e) {
+  eraserToggle = false;
+  eraserButton.style.backgroundColor = "#f2f2f2";
   if (prismaticToggle) {
     prismaticToggle = false;
     e.target.style.backgroundColor = "#f2f2f2";
   } else {
-    e.target.style.backgroundColor = "#fbd782";
     prismaticToggle = true;
+    e.target.style.backgroundColor = "#fbd782";
+  }
+}
+
+function eraserMode(e) {
+  prismaticToggle = false;
+  prismaticButton.style.backgroundColor = "#f2f2f2";
+  colorPicker.value = "#f2f2f2";
+  color = colorPicker.value;
+  if (eraserToggle) {
+    eraserToggle = false;
+    e.target.style.backgroundColor = "#f2f2f2";
+  } else {
+    eraserToggle = true;
+    e.target.style.backgroundColor = "#fbd782";
   }
 }
 
