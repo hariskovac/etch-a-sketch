@@ -18,8 +18,8 @@ clearButton.addEventListener("click", eraseDrawing);
 
 // Removes the current canvas and creates a new one
 function createCanvas() {
-  const etchBorder = document.querySelector(".etch-border");
-  etchBorder.removeChild(document.querySelector(".canvas"));
+  const mainSection = document.querySelector(".main-section");
+  mainSection.removeChild(document.querySelector(".canvas"));
 
   const newCanvas = document.createElement("div");
   newCanvas.setAttribute("class", "canvas");
@@ -28,7 +28,7 @@ function createCanvas() {
 
   newCanvas.style.gridTemplateColumns = `repeat(${sizeSlider.value}, 1fr)`;
   newCanvas.style.gridTemplateRows = `repeat(${sizeSlider.value}, 1fr)`;
-  etchBorder.insertBefore(newCanvas, options);
+  mainSection.insertBefore(newCanvas, options);
 }
 
 // Creates divs to fill the canvas based on user selected size
