@@ -7,24 +7,26 @@ const paintButton = document.querySelector("#paint-button");
 const eraserButton = document.querySelector("#eraser-button");
 
 let color = colorPicker.value;
-let prismaticToggle = false;
-let eraserToggle = false;
+let prismaticMode = false;
+let eraserMode = false;
 
 sizeSlider.addEventListener("change", () => {
   createCanvas();
   setGrid(sizeSlider.value);
 })
 
-prismaticButton.addEventListener("click", prismaticMode);
+prismaticButton.addEventListener("click", prismaticToggle);
 paintButton.addEventListener("click", paintAll);
-eraserButton.addEventListener("click", eraserMode);
+eraserButton.addEventListener("click", eraserToggle);
 clearButton.addEventListener("click", clearCanvas);
 sizeSlider.addEventListener("mousemove", updateText);
 sizeSlider.addEventListener("click", updateText);
 
 colorPicker.addEventListener("change", () => {
-  prismaticOff();
-  eraserOff();
+  prismaticMode = false;
+  eraserMode = false;
+  prismaticButton.style.backgroundColor = "#f2f2f2";
+  eraserButton.style.backgroundColor = "#f2f2f2";
   color = colorPicker.value;
 })
 
@@ -57,7 +59,7 @@ function setGrid(size) {
 // Changes the color of the divs inside the canvas
 function changeColor(e) {
   if (e?.buttons === 1) {
-    if (prismaticToggle === true) {
+    if (prismaticMode === true) {
       const rainbowColor = Math.floor(Math.random() * 360);
       e.target.style.backgroundColor = `hsl(${rainbowColor}, 100%, 60%)`;
     } else {
@@ -67,20 +69,16 @@ function changeColor(e) {
 }
 
 // Toggles prismatic mode on and eraser mode off
-function prismaticMode(e) {
-  eraserOff();
-  if (prismaticToggle) {
-    prismaticOff();
+function prismaticToggle() {
+  eraserMode = false;
+  eraserButton.style.backgroundColor = "#f2f2f2";
+  if (prismaticMode) {
+    prismaticMode = false;
+    prismaticButton.style.backgroundColor = "#f2f2f2";
   } else {
-    prismaticToggle = true;
-    e.target.style.backgroundColor = "#fbd782";
+    prismaticMode = true;
+    prismaticButton.style.backgroundColor = "#fbd782";
   }
-}
-
-// Toggles prismatic mode off
-function prismaticOff() {
-  prismaticToggle = false;
-  prismaticButton.style.backgroundColor = "#f2f2f2";
 }
 
 // Paints the canvas with the user selected color
@@ -91,22 +89,18 @@ function paintAll() {
   });
 }
 
-// Toggles eraser mode off
-function eraserOff() {
-  eraserToggle = false;
-  eraserButton.style.backgroundColor = "#f2f2f2";
-}
-
 // Toggles eraser mode on and prismatic mode off
-function eraserMode(e) {
-  prismaticOff();
+function eraserToggle() {
   colorPicker.value = "#f2f2f2";
   color = colorPicker.value;
-  if (eraserToggle) {
-    eraserOff();
+  prismaticMode = false;
+  prismaticButton.style.backgroundColor = "#f2f2f2";
+  if (eraserMode) {
+    eraserMode = false;
+    eraserButton.style.backgroundColor = "#f2f2f2";
   } else {
-    eraserToggle = true;
-    e.target.style.backgroundColor = "#fbd782";
+    eraserMode = true;
+    eraserButton.style.backgroundColor = "#fbd782";
   }
 }
 
