@@ -21,14 +21,8 @@ eraserButton.addEventListener("click", eraserToggle);
 clearButton.addEventListener("click", clearCanvas);
 sizeSlider.addEventListener("mousemove", updateText);
 sizeSlider.addEventListener("click", updateText);
-
-colorPicker.addEventListener("change", () => {
-  prismaticMode = false;
-  eraserMode = false;
-  prismaticButton.style.backgroundColor = "#f2f2f2";
-  eraserButton.style.backgroundColor = "#f2f2f2";
-  color = colorPicker.value;
-})
+colorPicker.addEventListener("change", colorMode);
+colorPicker.addEventListener("click", colorMode);
 
 // Removes the current canvas and creates a new one
 function createCanvas() {
@@ -54,6 +48,15 @@ function setGrid(size) {
     canvasElement.addEventListener("mousedown", changeColor);
     document.querySelector(".canvas").appendChild(canvasElement);
   };
+}
+
+// Turns prismatic and eraser mode off and allows user to paint in their chosen color
+function colorMode() {
+  prismaticMode = false;
+  eraserMode = false;
+  prismaticButton.style.backgroundColor = "#f2f2f2";
+  eraserButton.style.backgroundColor = "#f2f2f2";
+  color = colorPicker.value;
 }
 
 // Changes the color of the divs inside the canvas
